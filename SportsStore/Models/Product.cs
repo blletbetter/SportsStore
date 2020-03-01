@@ -34,7 +34,7 @@ namespace SportsStore.Models
             Supplier = supplier;
         }
 
-        public string GetInfo()
+        public virtual string GetInfo()
         {
             string info;
             info = $"Name: {name}\n";
