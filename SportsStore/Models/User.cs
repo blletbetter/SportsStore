@@ -15,9 +15,13 @@ namespace SportsStore.Models
             set
             {
                 if (Age <= 0)
+                {
                     throw new ArgumentException("Age should be more than 0");
+                }
                 else
+                {
                     Age = value;
+                }
             }
         }
         
@@ -25,7 +29,9 @@ namespace SportsStore.Models
         public User(string name, int age, string password, string passwordConfirmation)
         {
             if (password != passwordConfirmation)
+            {
                 throw new ArgumentException("Passwords dont match");
+            }
             else
             {
                 this.Age = age;
@@ -37,9 +43,13 @@ namespace SportsStore.Models
         public bool LogIn(string name, string password)
         {
             if (this.name == name && this.password == password)
+            {
                 return true;
+            }
             else
+            {
                 return false;
+            }
         }
 
         public bool ChangePassword(string oldValue, string newValue, string newValueConfirmation)
@@ -50,7 +60,9 @@ namespace SportsStore.Models
                 return true;
             }
             else
+            {
                 throw new ArgumentException("Wrong Input");
+            }
         }
     }
 }

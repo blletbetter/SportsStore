@@ -21,5 +21,10 @@ namespace SportsStore.Models
         {
             return $"";
         }
+
+        public void AddProductToStore(Store store, HockeyProduct hockeyProduct, string password, int amount = 1)
+        {
+            store.AddProduct(hockeyProduct, password, amount);
+        }
     }
 }

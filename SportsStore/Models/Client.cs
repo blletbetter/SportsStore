@@ -22,27 +22,31 @@ namespace SportsStore.Models
 
         public void AddItemToBasket(HockeyProduct item)
         {
-
+            basket.AddItem(item);
         }
 
-        public bool AddCreditCard(CreditCard card)
+        public void AddCreditCard(CreditCard card)//remake
         {
-
+            creditCard = card;
         }
 
-        public bool CreateDiscountCard(int discountCardCost)
+        public bool CreateDiscountCard(int discountCardCost, string password)
         {
-            if (creditCard == null)
+            if (creditCard != null)
+            {
                 return false;
+            }
             else
             {
-                if (creditCard.Pay(discountCardCost))
+                if (creditCard.Pay(discountCardCost, password))
                 {
-                    DiscountCard = new DiscountCard();
+                    DiscountCard = new DiscountCard(DateTime.Now, this);
                     return true;
                 }
                 else
+                {
                     return false;
+                }
             }
         }
     }

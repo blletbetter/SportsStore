@@ -10,7 +10,7 @@ namespace SportsStore.Models
         public readonly string ownerName;
         private readonly int CVN;
         private string password;
-        private decimal money;
+        public decimal Balance { get; private set; }
         private bool blocked;
 
         public CreditCard(DateTime expirationDate, string ownerName, string password, int cvn) : base(expirationDate)
@@ -18,7 +18,7 @@ namespace SportsStore.Models
             this.ownerName = ownerName;
             this.password = password;
             CVN = cvn;
-            money = 0;
+            Balance = 0;
         }
 
         public void Block()
@@ -31,25 +31,34 @@ namespace SportsStore.Models
             password = newPassword;
         }
 
-        public bool Pay(decimal sum)
+        public bool Pay(decimal sum, string password)
         {
-            if (blocked)
-                return false;
+            if (password == this.password)
+            {
+                if (blocked)
+                    return false;
+                else
+                {
+                    if (Balance >= sum)
+                    {
+                        Balance -= sum;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
             else
             {
-                if (money >= sum)
-                {
-                    money -= sum;
-                    return true;
-                }
-                else
-                    return false;
+                return false;
             }
         }
 
         public void AddMoney(decimal sum)
         {
-            money += sum;
+            Balance += sum;
         }
     }
 }

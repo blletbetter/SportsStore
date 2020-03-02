@@ -23,21 +23,33 @@ namespace SportsStore.Models
         private double CountDiscount(decimal sum)
         {
             if (sum < 100)
+            {
                 return 0.05;
-            else if (sum < 200)
-                return 0.06;
-            else if (sum < 500)
+            }
+            else if (sum > 100 && sum < 200)
+            {
                 return 0.08;
+            }
+            else if (sum > 200 && sum < 500)
+            {
+                return 0.08;
+            }
             else
+            {
                 return 0.10;
+            }
         }
 
         public decimal CountSumWithDiscount(decimal sum)
         {
             if (IsActivated)
+            {
                 return sum * (decimal)(1 - discount);
+            }
             else
+            {
                 return sum;
+            }
         }
 
     }
