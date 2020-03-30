@@ -7,38 +7,38 @@ namespace SportsStore.Models
 {
     public class Client : User
     {
-        public string Email { get; private set; }
-        public DiscountCard DiscountCard { get; private set; }
-        private Basket basket;
-        private CreditCard creditCard;
+        public string Email { get; set; }
+        public DiscountCard DiscountCard { get; set; }
+        public Basket Basket { get; set; }
+        public CreditCard CreditCard { get; set; }
 
         public Client(string name, int age, string password, string passwordConfirmation, string email) : base(name, age, password, passwordConfirmation)
         {
             Email = email;
-            creditCard = null;
-            basket = new Basket();
+            CreditCard = null;
+            Basket = new Basket();
             DiscountCard = null;
         }
 
         public void AddItemToBasket(HockeyProduct item)
         {
-            basket.AddItem(item);
+            Basket.AddItem(item);
         }
 
         public void AddCreditCard(CreditCard card)//remake
         {
-            creditCard = card;
+            CreditCard = card;
         }
 
         public bool CreateDiscountCard(int discountCardCost, string password)
         {
-            if (creditCard != null)
+            if (CreditCard == null || DiscountCard != null)
             {
                 return false;
             }
             else
             {
-                if (creditCard.Pay(discountCardCost, password))
+                if (CreditCard.Pay(discountCardCost, password))
                 {
                     DiscountCard = new DiscountCard(DateTime.Now, this);
                     return true;

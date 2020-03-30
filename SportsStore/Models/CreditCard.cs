@@ -7,16 +7,16 @@ namespace SportsStore.Models
 {
     public sealed class CreditCard : Card
     {
-        public readonly string ownerName;
-        private readonly int CVN;
-        private string password;
+        public string OwnerName { get; set; }
+        public int CVN { get; set; }
+        public string Password { get; set; }
         public decimal Balance { get; private set; }
         private bool blocked;
 
         public CreditCard(DateTime expirationDate, string ownerName, string password, int cvn) : base(expirationDate)
         {
-            this.ownerName = ownerName;
-            this.password = password;
+            this.OwnerName = ownerName;
+            this.Password = password;
             CVN = cvn;
             Balance = 0;
         }
@@ -26,29 +26,26 @@ namespace SportsStore.Models
             blocked = true;
         }
 
-        public void UnBlock(string newPassword)
+        public bool UnBlock(string newPassword, string passwordConfirmation)
         {
-            password = newPassword;
+            if(newPassword == passwordConfirmation)
+            {
+                Password = newPassword;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         public bool Pay(decimal sum, string password)
         {
-            if (password == this.password)
-            {
-                if (blocked)
-                    return false;
-                else
-                {
-                    if (Balance >= sum)
-                    {
-                        Balance -= sum;
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
+            if (password == Password && !blocked && Balance >= sum)
+            {                        
+                Balance -= sum;
+                return true;           
             }
             else
             {

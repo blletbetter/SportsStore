@@ -7,26 +7,26 @@ namespace SportsStore.Models
 {
     public sealed class Stick : HockeyProduct
     {
-        public readonly string material;
-        public readonly Player playerType;
-        public readonly Grip grip;
-        public readonly double length;
+        public string Material { get; set; }
+        public Player PlayerType { get; set; }
+        public Grip Grip { get; set; }
+        public double Length { get; set; }
 
         public Stick(string name, string supplier, double mass, decimal purchaseCost, decimal sellCost, decimal shipCost, int prodYear,
-            List<HockeyItemSize> sizes, string description, string material, Player playerType, Grip grip, double length)
-            : base(name, supplier, mass, purchaseCost, sellCost, shipCost, prodYear, sizes, description)
+            string imageSource, List<HockeyItemSize> sizes, string description, string material, Player playerType, Grip grip, double length)
+            : base(name, supplier, mass, purchaseCost, sellCost, shipCost, prodYear, imageSource, sizes, description)
         {
-            this.material = material;
-            this.grip = grip;
-            this.playerType = playerType;
-            this.length = length;
+            this.Material = material;
+            this.Grip = grip;
+            this.PlayerType = playerType;
+            this.Length = length;
         }
 
         public override string GetInfo()
         {
-            string gripInfo = grip == Grip.Left ? "Left" : "Right";
-            string playerInfo = playerType == Player.Goalkeeper ? "Goalkeeper" : "Field player";
-            return base.GetInfo() + $"Made of: {material}\nLength: {length}\nFor: {playerInfo}\nGrip: {gripInfo}\n";
+            string gripInfo = Grip == Grip.Left ? "Left" : "Right";
+            string playerInfo = PlayerType == Player.Goalkeeper ? "Goalkeeper" : "Field player";
+            return base.GetInfo() + $"Made of: {Material}\nLength: {Length}\nFor: {playerInfo}\nGrip: {gripInfo}\n";
         }
     }
 

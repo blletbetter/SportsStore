@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SportsStore.Models
 {
-    public class Owner : Admin
+    public class Owner //: Admin
     {
     }
 }

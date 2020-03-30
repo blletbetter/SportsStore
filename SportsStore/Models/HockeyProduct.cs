@@ -5,28 +5,83 @@ using System.Threading.Tasks;
 
 namespace SportsStore.Models
 {
-    public class HockeyProduct : Product
+    public class HockeyProduct
     {
-        public readonly int productionYear;
-        public List<HockeyItemSize> sizes { get; protected set; }
-        public string Description { get; protected set; }
+        public decimal PurchaseCost { get; set; }
+        public double Mass { get; set; }
+        public string Name { get; set; }
+        public string Supplier { get; set; }
+        public decimal SellCost { get; set; }
+        public decimal ShipCost { get; set; }
+        public string ImageSource { get; set; }
+        public  int ProductionYear { get; set; }
+        public List<HockeyItemSize> Sizes { get; set; }
+        public string Description { get; set; }
 
         public HockeyProduct(string name, string supplier, double mass, decimal purchaseCost, decimal sellCost, decimal shipCost, int prodYear, 
-            List<HockeyItemSize> sizes, string description) : base(name, supplier, mass, purchaseCost, sellCost, shipCost)
+            string imageSource, List<HockeyItemSize> sizes, string description)
         {
-            this.sizes = sizes;
+            PurchaseCost = purchaseCost;
+            Mass = mass;
+            Name = name;
+            SellCost = sellCost;
+            ShipCost = shipCost;
+            ImageSource = imageSource;
+            Supplier = supplier;
+            Sizes = sizes;
             Description = description;
-            productionYear = prodYear;
+            ProductionYear = prodYear;
         }
 
-        public List<HockeyProduct> DescriptionSearch(List<HockeyProduct> items, string description)
+        public virtual string GetInfo()
         {
-            return new List<HockeyProduct>(items.Where(i => i.Description.Contains(description)));
-        } 
+            string info = $"Name: {Name}\n";
+            info += $"Supplier: {Supplier}\n";
+            info += $"Mass: {Mass}\n";
+            info += $"Purchase Cost: {PurchaseCost}\n";
+            info += $"Ship Cost: {ShipCost}\n";
+            info += $"Sell Cost: {SellCost}\n";
+            info += $"Production Year: {ProductionYear}\n";
+            info += $"Description: {Description}\n";
+            return info;
+        }
 
-        public override string GetInfo()
+        public override bool Equals(object obj)
         {
-            return $"Name: {name}\nSupplier: {Supplier}\nMass: {mass}\nProduction Year: {productionYear}\nCost: {SellCost}\nDescription: {Description}\n";
+            if(obj == null || obj.GetType() != typeof(HockeyProduct))
+            {
+                return false;
+            }
+            else
+            {
+                var item = obj as HockeyProduct;
+                if (PurchaseCost == item.PurchaseCost && SellCost == item.SellCost && Name == item.Name && Supplier == item.Supplier && Mass == item.Mass &&
+                    ShipCost == item.ShipCost && ProductionYear == item.ProductionYear)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public static bool operator ==(HockeyProduct a, HockeyProduct b)
+        {
+            if (a.Equals(b))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool operator !=(HockeyProduct a, HockeyProduct b)
+        {
+            return !(a == b);
         }
     }
 

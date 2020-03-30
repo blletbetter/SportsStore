@@ -7,24 +7,24 @@ namespace SportsStore.Models
 {
     public abstract class User
     {
-        protected string password;
-        public readonly string name;
+        public string Password { get; set; }
+        public string Name { get; set; }
+        protected int age { get; set; }
         public int Age 
         {
-            get { return Age; }
-            set
+            get { return age; }
+            private set
             {
-                if (Age <= 0)
+                if (value <= 0)
                 {
                     throw new ArgumentException("Age should be more than 0");
                 }
                 else
                 {
-                    Age = value;
+                    age = value;
                 }
             }
-        }
-        
+        }        
 
         public User(string name, int age, string password, string passwordConfirmation)
         {
@@ -34,15 +34,15 @@ namespace SportsStore.Models
             }
             else
             {
-                this.Age = age;
-                this.name = name;
-                this.password = password;
+                Age = age;
+                Name = name;
+                Password = password;
             }
         }
 
         public bool LogIn(string name, string password)
         {
-            if (this.name == name && this.password == password)
+            if (Name == name && Password == password)
             {
                 return true;
             }
@@ -54,14 +54,14 @@ namespace SportsStore.Models
 
         public bool ChangePassword(string oldValue, string newValue, string newValueConfirmation)
         {
-            if (password == oldValue && newValue == newValueConfirmation)
+            if (Password == oldValue && newValue == newValueConfirmation)
             {
-                password = newValue;
+                Password = newValue;
                 return true;
             }
             else
             {
-                throw new ArgumentException("Wrong Input");
+                return false;
             }
         }
     }

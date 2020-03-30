@@ -23,7 +23,22 @@ namespace SportsStore.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Sales()
+        {
+            return View();
+        }
+        
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Basket()
+        {
+            return View();
+        }
+
+        public IActionResult SignIn()
         {
             return View();
         }

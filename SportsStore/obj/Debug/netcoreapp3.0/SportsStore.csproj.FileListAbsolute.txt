@@ -9,7 +9,6 @@ C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\bin\Debug\netcoreapp3.0\Sp
 C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\bin\Debug\netcoreapp3.0\SportsStore.pdb
 C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\bin\Debug\netcoreapp3.0\SportsStore.Views.dll
 C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\bin\Debug\netcoreapp3.0\SportsStore.Views.pdb
-C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\SportsStore.csprojAssemblyReference.cache
 C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\staticwebassets\SportsStore.StaticWebAssets.Manifest.cache
 C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\staticwebassets\SportsStore.StaticWebAssets.xml
 C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\SportsStore.MvcApplicationPartsAssemblyInfo.cache
@@ -21,7 +20,6 @@ C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\Sp
 C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\SportsStore.TagHelpers.output.cache
 C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\SportsStore.RazorCoreGenerate.cache
 C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs

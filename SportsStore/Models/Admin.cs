@@ -7,14 +7,14 @@ namespace SportsStore.Models
 {
     public class Admin : User
     {
-        protected DateTime dateOfAppointment;
-        protected int reputation;
+        public DateTime DateOfAppointment { get; set; }
+        public int Reputation { get; set; }
 
         public Admin(string name, int age,  string password, string passwordConfirmation, DateTime date, int reputation)
             : base(name, age, password, passwordConfirmation)
         {
-            dateOfAppointment = date;
-            this.reputation = reputation;
+            DateOfAppointment = date;
+            Reputation = reputation;
         }
 
         public string GetClientInfo(Client client)
@@ -22,9 +22,15 @@ namespace SportsStore.Models
             return $"";
         }
 
-        public void AddProductToStore(Store store, HockeyProduct hockeyProduct, string password, int amount = 1)
+        public bool AddProductToStore(Store store, HockeyProduct hockeyProduct, string password, int amount = 1)
         {
-            store.AddProduct(hockeyProduct, password, amount);
+            return store.AddProduct(hockeyProduct, password, amount);
+        }
+
+        public string Ban(Client c, string reason)
+        {
+            c = null;
+            return reason;
         }
     }
 }

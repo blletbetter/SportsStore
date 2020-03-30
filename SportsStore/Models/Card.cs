@@ -8,7 +8,7 @@ namespace SportsStore.Models
     public abstract class Card
     {
         public readonly DateTime expirationDate;
-        protected readonly int id;
+        public readonly int id;
         public readonly string stringId;
         public static int ID;
         
@@ -49,6 +49,7 @@ namespace SportsStore.Models
             while(16 - i > 0)
             {
                 temp += (new Random().Next(0,9)).ToString();
+                i++;
             }
             temp += id.ToString();
             return temp;
