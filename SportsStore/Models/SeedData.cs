@@ -13,7 +13,7 @@ namespace SportsStore.Models
         public static void EnsurePopulated(IApplicationBuilder app)
         {
             ProductDbContext context = app.ApplicationServices.GetRequiredService<ProductDbContext>();
-            context.Database.Migrate();
+            context.Database.EnsureCreated();
             if(!context.Products.Any())
             {
                 context.Products.AddRange(new List<HockeyProduct>(){
