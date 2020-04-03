@@ -1,7 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-    Layout = null;
-}
+﻿@model IEnumerable<HockeyProduct>
 
 <!doctype html>
 
@@ -16,8 +13,10 @@
 </head>
 
 <body>
-    <header>
-        <p> hi </p>
-    </header>
+    @foreach(var p in Model)
+    {
+        <h3>@p.Name</h3>
+        <p>@p.Price.ToString()</p>
+    }
 </body>
 </html>
