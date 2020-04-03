@@ -58,7 +58,7 @@ namespace SportsStore.Models
             decimal sum = 0m;
             foreach(var i in products)
             {
-                sum += i.Key.SellCost * i.Value;
+                sum += i.Key.Price * i.Value;
             }
             return sum;
         }

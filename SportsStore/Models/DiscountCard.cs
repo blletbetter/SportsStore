@@ -8,16 +8,16 @@ namespace SportsStore.Models
     public sealed class DiscountCard : Card
     {
         public readonly Client owner;
-        private double discount;
-        private decimal moneySpentThisMonth;
+        public double Discount { get; private set; }
+        public decimal MoneySpentThisMonth { get; private set; }
         public bool IsActivated { get; private set; }
 
         public DiscountCard(DateTime expirationDate, Client owner)
         {
             IsActivated = true;
-            moneySpentThisMonth = 0;
+            MoneySpentThisMonth = 0;
             this.owner = owner;
-            discount = CountDiscount(moneySpentThisMonth);
+            Discount = CountDiscount(MoneySpentThisMonth);
         }
 
         private double CountDiscount(decimal sum)
@@ -44,7 +44,7 @@ namespace SportsStore.Models
         {
             if (IsActivated)
             {
-                return sum * (decimal)(1 - discount);
+                return sum * (decimal)(1 - Discount);
             }
             else
             {

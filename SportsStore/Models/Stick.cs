@@ -7,26 +7,24 @@ namespace SportsStore.Models
 {
     public sealed class Stick : HockeyProduct
     {
-        public string Material { get; set; }
         public Player PlayerType { get; set; }
         public Grip Grip { get; set; }
         public double Length { get; set; }
 
-        public Stick(string name, string supplier, double mass, decimal purchaseCost, decimal sellCost, decimal shipCost, int prodYear,
-            string imageSource, List<HockeyItemSize> sizes, string description, string material, Player playerType, Grip grip, double length)
-            : base(name, supplier, mass, purchaseCost, sellCost, shipCost, prodYear, imageSource, sizes, description)
+        public Stick(string name, string supplier, decimal price, int prodYear, string imageSource, List<HockeyItemSize> sizes,
+            string description, Grip grip, Player playerType, double length)
+            : base(name, supplier, price, prodYear, imageSource, sizes, description)
         {
-            this.Material = material;
-            this.Grip = grip;
-            this.PlayerType = playerType;
-            this.Length = length;
+            Grip = grip;
+            PlayerType = playerType;
+            Length = length;
         }
 
         public override string GetInfo()
         {
             string gripInfo = Grip == Grip.Left ? "Left" : "Right";
             string playerInfo = PlayerType == Player.Goalkeeper ? "Goalkeeper" : "Field player";
-            return base.GetInfo() + $"Made of: {Material}\nLength: {Length}\nFor: {playerInfo}\nGrip: {gripInfo}\n";
+            return base.GetInfo() + $"Length: {Length}\nFor: {playerInfo}\nGrip: {gripInfo}\n";
         }
     }
 

@@ -34,7 +34,7 @@ namespace SportsStore.Models
         public virtual string GetInfo()
         {
             string info = $"Id: {stringId}";
-            info = String.Concat(info, $"\nExpiration Date: {expirationDate}\n");
+            info += "\nExpiration Date: {expirationDate}\n";
             return info;
         }
 

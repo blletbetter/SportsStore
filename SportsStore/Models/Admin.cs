@@ -17,11 +17,6 @@ namespace SportsStore.Models
             Reputation = reputation;
         }
 
-        public string GetClientInfo(Client client)
-        {
-            return $"";
-        }
-
         public bool AddProductToStore(Store store, HockeyProduct hockeyProduct, string password, int amount = 1)
         {
             return store.AddProduct(hockeyProduct, password, amount);

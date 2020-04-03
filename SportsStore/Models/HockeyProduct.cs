@@ -7,25 +7,18 @@ namespace SportsStore.Models
 {
     public class HockeyProduct
     {
-        public decimal PurchaseCost { get; set; }
-        public double Mass { get; set; }
         public string Name { get; set; }
         public string Supplier { get; set; }
-        public decimal SellCost { get; set; }
-        public decimal ShipCost { get; set; }
+        public decimal Price { get; set; }
         public string ImageSource { get; set; }
         public  int ProductionYear { get; set; }
         public List<HockeyItemSize> Sizes { get; set; }
         public string Description { get; set; }
 
-        public HockeyProduct(string name, string supplier, double mass, decimal purchaseCost, decimal sellCost, decimal shipCost, int prodYear, 
-            string imageSource, List<HockeyItemSize> sizes, string description)
+        public HockeyProduct(string name, string supplier, decimal price, int prodYear, string imageSource, List<HockeyItemSize> sizes, string description)
         {
-            PurchaseCost = purchaseCost;
-            Mass = mass;
             Name = name;
-            SellCost = sellCost;
-            ShipCost = shipCost;
+            Price = price;
             ImageSource = imageSource;
             Supplier = supplier;
             Sizes = sizes;
@@ -37,10 +30,7 @@ namespace SportsStore.Models
         {
             string info = $"Name: {Name}\n";
             info += $"Supplier: {Supplier}\n";
-            info += $"Mass: {Mass}\n";
-            info += $"Purchase Cost: {PurchaseCost}\n";
-            info += $"Ship Cost: {ShipCost}\n";
-            info += $"Sell Cost: {SellCost}\n";
+            info += $"Price: {Price}\n";
             info += $"Production Year: {ProductionYear}\n";
             info += $"Description: {Description}\n";
             return info;
@@ -55,8 +45,7 @@ namespace SportsStore.Models
             else
             {
                 var item = obj as HockeyProduct;
-                if (PurchaseCost == item.PurchaseCost && SellCost == item.SellCost && Name == item.Name && Supplier == item.Supplier && Mass == item.Mass &&
-                    ShipCost == item.ShipCost && ProductionYear == item.ProductionYear)
+                if (Price == item.Price && Name == item.Name && Supplier == item.Supplier && ProductionYear == item.ProductionYear)
                 {
                     return true;
                 }
@@ -65,6 +54,11 @@ namespace SportsStore.Models
                     return false;
                 }
             }
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, Supplier, Price, ImageSource, ProductionYear, Sizes, Description);
         }
 
         public static bool operator ==(HockeyProduct a, HockeyProduct b)

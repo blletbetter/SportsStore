@@ -13,7 +13,7 @@ namespace SportsStore.Models
         public Basket()
         {
             Products = new Dictionary<HockeyProduct, int>();
-            TotalCost = default;
+            TotalCost = 0m;
         }
 
         public Basket(Dictionary<HockeyProduct, int> products)
@@ -27,7 +27,7 @@ namespace SportsStore.Models
             decimal sum = 0m;
             foreach (var item in Products)
             {
-                sum += item.Key.SellCost * item.Value;
+                sum += item.Key.Price * item.Value;
             }
             return sum;
         }
@@ -42,12 +42,13 @@ namespace SportsStore.Models
             {
                 Products.Add(item, amount);
             }
+            CountTotal();
         }
 
 
-        public List<HockeyProduct> DescriptionSearch(string description)
+        public List<HockeyProduct> DescriptionSearch(string keyPhrase)
         {
-            return new List<HockeyProduct>(Products.Keys.Where(i => i.Description.Contains(description)));
+            return new List<HockeyProduct>(Products.Keys.Where(i => i.Description.Contains(keyPhrase)));
         }
 
     }

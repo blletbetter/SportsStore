@@ -9,11 +9,11 @@ namespace SportsStore.Models
     {
         public string Material { get; set; }
 
-        public Skates(string name, string supplier, double mass, decimal purchaseCost, decimal sellCost, decimal shipCost, int prodYear, string imageSource,
-            List<HockeyItemSize> sizes, string description, string material) : base(name, supplier, mass, purchaseCost, sellCost, shipCost, prodYear, imageSource,
-                sizes, description)
+        public Skates(string name, string supplier, decimal price, int prodYear, string imageSource, List<HockeyItemSize> sizes,
+            string description, string material)
+            : base(name, supplier, price, prodYear, imageSource, sizes, description)
         {
-            this.Material = material;
+            Material = material;
         }
 
         public override string GetInfo()

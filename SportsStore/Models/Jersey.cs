@@ -8,13 +8,13 @@ namespace SportsStore.Models
     public sealed class Jersey : HockeyProduct
     {
         public  string PlayerSurname { get; set; }
-        public  string Number { get; set; }
+        public  int? Number { get; set; }
         public  string Team { get; set; }
         public  JerseyType JerseyType { get; set; }
 
-        public Jersey(string name, string supplier, double mass, decimal purchaseCost, decimal sellCost, decimal shipCost, int prodYear,
-            string imageSource, List<HockeyItemSize> sizes, string description, string playerSurname, string number, string team, JerseyType jerseyType)
-            : base(name, supplier, mass, purchaseCost, sellCost, shipCost, prodYear, imageSource, sizes, description)
+        public Jersey(string name, string supplier, decimal price, int prodYear, string imageSource, List<HockeyItemSize> sizes,
+            string description, JerseyType jerseyType, string team, int? number, string playerSurname)
+            : base(name, supplier, price, prodYear, imageSource, sizes, description)
         {
             PlayerSurname = playerSurname;
             JerseyType = jerseyType;
