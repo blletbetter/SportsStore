@@ -11,12 +11,9 @@ namespace SportsStoreUnitTest
         public void BasketCountTotalTest()
         {
             var basket = new Basket();
-            var p1 = new Stick("Stick", "CCM", 200, 2015, "sss", new List<HockeyItemSize>() { HockeyItemSize.Adult, HockeyItemSize.Child },
-                "good", Grip.Left, Player.FieldPlayer, 0.8);
-            var p2 = new Skates("Stick", "CCM", 200, 2015, "sss", new List<HockeyItemSize>() { HockeyItemSize.Adult, HockeyItemSize.Child },
-                "sss", "wood");
-            var p3 = new Helmet("Stick", "CCM", 200, 2015, "sss", new List<HockeyItemSize>() { HockeyItemSize.Adult, HockeyItemSize.Child },
-                "sss", true, Player.FieldPlayer);
+            var p1 = new Stick("Stick", "CCM", 200, 2015, "abc", "good", Grip.Left, Player.FieldPlayer, 0.8);
+            var p2 = new Skates("Stick", "CCM", 200, 2015, "sss", "sss", "wood");
+            var p3 = new Helmet("Stick", "CCM", 200, 2015, "sss", "sss", true, Player.FieldPlayer);
             basket.AddItem(p1, 2);
             basket.AddItem(p2);
             basket.AddItem(p3, 4);
@@ -27,12 +24,9 @@ namespace SportsStoreUnitTest
         public void DescriptionTest()
         {
             var basket = new Basket();
-            var p1 = new Stick("Stick", "CCM", 200, 2015, "abc", new List<HockeyItemSize>() { HockeyItemSize.Adult, HockeyItemSize.Child },
-                "good", Grip.Left, Player.FieldPlayer, 0.8);
-            var p2 = new Skates("Stick", "CCM", 200, 2015, "sss", new List<HockeyItemSize>() { HockeyItemSize.Adult, HockeyItemSize.Child },
-                "sss", "wood");
-            var p3 = new Helmet("Stick", "CCM", 200, 2015, "sss", new List<HockeyItemSize>() { HockeyItemSize.Adult, HockeyItemSize.Child },
-                "sss", true, Player.FieldPlayer);
+            var p1 = new Stick("Stick", "CCM", 200, 2015, "abc", "good", Grip.Left, Player.FieldPlayer, 0.8);
+            var p2 = new Skates("Stick", "CCM", 200, 2015, "sss", "sss", "wood");
+            var p3 = new Helmet("Stick", "CCM", 200, 2015, "sss", "sss", true, Player.FieldPlayer);
             basket.AddItem(p1, 2);
             basket.AddItem(p2);
             basket.AddItem(p3, 4);
@@ -84,8 +78,7 @@ namespace SportsStoreUnitTest
         {
             var store = new Store("1234");
             var admin = new Admin("das", 18, "12", "12", DateTime.Now, 0);
-            var product = new Stick("Stick", "CCM", 200, 2015, "sss", new List<HockeyItemSize>() { HockeyItemSize.Adult, HockeyItemSize.Child },
-                "good", Grip.Left, Player.FieldPlayer, 0.8);
+            var product = new Stick("Stick", "CCM", 200, 2015, "abc", "good", Grip.Left, Player.FieldPlayer, 0.8);
             admin.AddProductToStore(store, product, "1234", 5);
             Assert.True(1000m == store.FullStoreProductsCost());
         }
@@ -95,8 +88,7 @@ namespace SportsStoreUnitTest
         {
             var store = new Store("1234");
             var admin = new Admin("das", 18, "12", "12", DateTime.Now, 0);
-            var product = new Stick("Stick", "CCM", 200, 2015, "sss", new List<HockeyItemSize>() { HockeyItemSize.Adult, HockeyItemSize.Child },
-                "good", Grip.Left, Player.FieldPlayer, 0.8);
+            var product = new Stick("Stick", "CCM", 200, 2015, "abc", "good", Grip.Left, Player.FieldPlayer, 0.8);
             admin.AddProductToStore(store, product, "134", 5);
             Assert.True(0m == store.FullStoreProductsCost());
         }
@@ -124,20 +116,16 @@ namespace SportsStoreUnitTest
         [Fact]
         public void ProductEqualsTest()
         {
-            var p1 = new HockeyProduct("Stick", "CCM", 200, 2015, "sss", new List<HockeyItemSize>() { HockeyItemSize.Adult, HockeyItemSize.Child },
-                "good");
-            var p2 = new HockeyProduct("Stick", "CCM", 200, 2015, "sss", new List<HockeyItemSize>() { HockeyItemSize.Adult, HockeyItemSize.Child },
-                "good");
+            var p1 = new HockeyProduct("Stick", "CCM", 200, 2015, "sss", "good");
+            var p2 = new HockeyProduct("Stick", "CCM", 200, 2015, "sss", "good");
             Assert.True(p1 == p2);
         }
 
         [Fact]
         public void ProductNotEqualsTest()
         {
-            var p1 = new HockeyProduct("Stcick", "CCM", 200, 2015, "sss", new List<HockeyItemSize>() { HockeyItemSize.Adult, HockeyItemSize.Child },
-                "good");
-            var p2 = new HockeyProduct("Stick", "CCM", 200, 2015, "sss", new List<HockeyItemSize>() { HockeyItemSize.Adult, HockeyItemSize.Child },
-                "good");
+            var p1 = new HockeyProduct("Stcick", "CCM", 200, 2015, "sss", "good");
+            var p2 = new HockeyProduct("Stick", "CCM", 200, 2015, "sss", "good");
             Assert.True(p1 != p2);
         }
     }

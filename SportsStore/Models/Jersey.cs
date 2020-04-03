@@ -12,9 +12,9 @@ namespace SportsStore.Models
         public  string Team { get; set; }
         public  JerseyType JerseyType { get; set; }
 
-        public Jersey(string name, string supplier, decimal price, int prodYear, string imageSource, List<HockeyItemSize> sizes,
-            string description, JerseyType jerseyType, string team, int? number, string playerSurname)
-            : base(name, supplier, price, prodYear, imageSource, sizes, description)
+        public Jersey(string name, string supplier, decimal price, int productionYear, string imageSource, /*List<HockeyItemSize> sizes*/ string description,
+        JerseyType jerseyType, string team, int? number, string playerSurname)
+            : base(name, supplier, price, productionYear, imageSource, description)
         {
             PlayerSurname = playerSurname;
             JerseyType = jerseyType;

@@ -9,9 +9,9 @@ namespace SportsStore.Models
     {
         public string Material { get; set; }
 
-        public Skates(string name, string supplier, decimal price, int prodYear, string imageSource, List<HockeyItemSize> sizes,
+        public Skates(string name, string supplier, decimal price, int productionYear, string imageSource, /*List<HockeyItemSize> sizes*/ 
             string description, string material)
-            : base(name, supplier, price, prodYear, imageSource, sizes, description)
+            : base(name, supplier, price, productionYear, imageSource, description)
         {
             Material = material;
         }

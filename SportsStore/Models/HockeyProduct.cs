@@ -2,28 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace SportsStore.Models
 {
     public class HockeyProduct
     {
+        [Key]
         public string Name { get; set; }
         public string Supplier { get; set; }
         public decimal Price { get; set; }
         public string ImageSource { get; set; }
         public  int ProductionYear { get; set; }
-        public List<HockeyItemSize> Sizes { get; set; }
+        //public List<HockeyItemSize> Sizes { get; set; }
         public string Description { get; set; }
 
-        public HockeyProduct(string name, string supplier, decimal price, int prodYear, string imageSource, List<HockeyItemSize> sizes, string description)
+        public HockeyProduct(string name, string supplier, decimal price, int productionYear, string imageSource, /*List<HockeyItemSize> sizes*/ string description)
         {
             Name = name;
-            Price = price;
-            ImageSource = imageSource;
             Supplier = supplier;
-            Sizes = sizes;
+            Price = price;
+            ProductionYear = productionYear;
+            ImageSource = imageSource;
+            //Sizes = sizes;
             Description = description;
-            ProductionYear = prodYear;
         }
 
         public virtual string GetInfo()
@@ -58,7 +60,7 @@ namespace SportsStore.Models
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Name, Supplier, Price, ImageSource, ProductionYear, Sizes, Description);
+            return HashCode.Combine(Name, Supplier, Price, ImageSource, ProductionYear, Description);
         }
 
         public static bool operator ==(HockeyProduct a, HockeyProduct b)

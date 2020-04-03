@@ -10,9 +10,9 @@ namespace SportsStore.Models
         public bool IsGlassed { get; set; }
         public Player PlayerType { get; set; }
 
-        public Helmet(string name, string supplier, decimal price, int prodYear, string imageSource, List<HockeyItemSize> sizes, 
-            string description,bool isGlassed, Player playerType)
-            : base(name, supplier, price, prodYear, imageSource, sizes, description)
+        public Helmet(string name, string supplier, decimal price, int productionYear, string imageSource, /*List<HockeyItemSize> sizes*/ string description
+            ,bool isGlassed, Player playerType)
+            : base(name, supplier, price, productionYear, imageSource, description)
         {
             IsGlassed = isGlassed;
             PlayerType = playerType;

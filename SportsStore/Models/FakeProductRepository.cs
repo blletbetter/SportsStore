@@ -9,8 +9,8 @@ namespace SportsStore.Models
     {
         public IQueryable<HockeyProduct> Products => new List<HockeyProduct>()
         {
-            new Stick("stick", "CCM", 100, 2015, "", new List<HockeyItemSize>{HockeyItemSize.Adult}, "good", Grip.Left, Player.FieldPlayer, 1.00),
-            new Helmet("helmet", "CCM", 100, 2014, "", new List<HockeyItemSize>{HockeyItemSize.Junior}, "fine", true, Player.Goalkeeper)
+            new Stick("stick", "CCM", 100, 2015, "", "good", Grip.Left, Player.FieldPlayer, 1.00),
+            new Helmet("helmet", "CCM", 100, 2014, "", "fine", true, Player.Goalkeeper)
         }.AsQueryable<HockeyProduct>();
     }
 }

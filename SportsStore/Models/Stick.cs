@@ -11,9 +11,9 @@ namespace SportsStore.Models
         public Grip Grip { get; set; }
         public double Length { get; set; }
 
-        public Stick(string name, string supplier, decimal price, int prodYear, string imageSource, List<HockeyItemSize> sizes,
+        public Stick(string name, string supplier, decimal price, int productionYear, string imageSource, /*List<HockeyItemSize> sizes*/ 
             string description, Grip grip, Player playerType, double length)
-            : base(name, supplier, price, prodYear, imageSource, sizes, description)
+            : base(name, supplier, price, productionYear, imageSource, description)
         {
             Grip = grip;
             PlayerType = playerType;
