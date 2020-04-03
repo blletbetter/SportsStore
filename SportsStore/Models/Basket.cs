@@ -42,7 +42,6 @@ namespace SportsStore.Models
             {
                 Products.Add(item, amount);
             }
-            CountTotal();
         }
 
 

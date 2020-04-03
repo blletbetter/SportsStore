@@ -31,3 +31,4 @@ C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\Sp
 C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\SportsStore.dll
 C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\SportsStore.pdb
 C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\SportsStore.csproj.CopyComplete
+C:\Users\kraso\Desktop\ООП\SportsStore\SportsStore\obj\Debug\netcoreapp3.0\SportsStore.csprojAssemblyReference.cache

@@ -27,7 +27,7 @@ namespace SportsStoreUnitTest
         public void DescriptionTest()
         {
             var basket = new Basket();
-            var p1 = new Stick("Stick", "CCM", 200, 2015, "sss", new List<HockeyItemSize>() { HockeyItemSize.Adult, HockeyItemSize.Child },
+            var p1 = new Stick("Stick", "CCM", 200, 2015, "abc", new List<HockeyItemSize>() { HockeyItemSize.Adult, HockeyItemSize.Child },
                 "good", Grip.Left, Player.FieldPlayer, 0.8);
             var p2 = new Skates("Stick", "CCM", 200, 2015, "sss", new List<HockeyItemSize>() { HockeyItemSize.Adult, HockeyItemSize.Child },
                 "sss", "wood");
@@ -37,19 +37,7 @@ namespace SportsStoreUnitTest
             basket.AddItem(p2);
             basket.AddItem(p3, 4);
             List<HockeyProduct> result = basket.DescriptionSearch("sss");
-            List<HockeyProduct> fact = new List<HockeyProduct>();
-            fact.Add(p2);
-            fact.Add(p3);
-            bool a = true;
-            for (int i = 0; i < fact.Count; i++)
-            {
-                if (fact[i] != result[i])
-                {
-                    a = false;
-                    break;
-                }
-            }
-            Assert.True(a);
+            Assert.True(result.Count == 2);
         }
 
         [Fact]
